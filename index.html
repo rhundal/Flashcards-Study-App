@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#f7f8fa">
+    <meta name="description" content="Create flashcard decks and study at your own pace.">
+    <title>Flashcards — Study workspace</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <a class="skip-link" href="#main-content">Skip to main content</a>
+    <div class="app-shell">
+        <header class="topbar">
+            <div class="brand">
+                <a class="brand-link" href="#" aria-label="Flashcards home">
+                    <span class="brand-mark" aria-hidden="true">
+                        <svg viewBox="0 0 32 32" focusable="false">
+                            <rect x="5" y="7" width="18" height="20" rx="3"></rect>
+                            <path d="M10 4h14a3 3 0 0 1 3 3v17M10 13h8M10 18h8"></path>
+                        </svg>
+                    </span>
+                    <span>flashcards<span class="brand-period">.</span></span>
+                </a>
+            </div>
+            <div class="topbar-actions">
+                <button class="button button-primary" id="new-deck-button" type="button" aria-haspopup="dialog" aria-controls="deck-dialog">
+                    <svg class="button-icon" viewBox="0 0 20 20" aria-hidden="true"><path d="M10 4v12M4 10h12"></path></svg>
+                    New deck
+                </button>
+                <button class="icon-button mobile-menu-button" id="mobile-menu-button" type="button" aria-label="Open deck navigation" aria-controls="deck-sidebar" aria-expanded="false">
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"></path></svg>
+                </button>
+            </div>
+        </header>
+
+        <div class="workspace">
+            <aside class="sidebar" id="deck-sidebar" aria-label="Deck navigation">
+                <div class="sidebar-heading">
+                    <div>
+                        <p class="eyebrow">Your library</p>
+                        <h2>My decks <span class="deck-total">3</span></h2>
+                    </div>
+                    <button class="icon-button sidebar-add-button" type="button" aria-label="Create a new deck" aria-haspopup="dialog" aria-controls="deck-dialog">
+                        <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 4v12M4 10h12"></path></svg>
+                    </button>
+                </div>
+
+                <label class="search-field deck-search" for="deck-search">
+                    <svg viewBox="0 0 20 20" aria-hidden="true"><circle cx="8.8" cy="8.8" r="5.8"></circle><path d="m13.2 13.2 4 4"></path></svg>
+                    <span class="sr-only">Filter decks</span>
+                    <input id="deck-search" type="search" placeholder="Find a deck" autocomplete="off">
+                </label>
+
+                <nav class="deck-navigation" aria-label="Your decks">
+                    <ul class="deck-list">
+                        <li class="deck-item is-active">
+                            <a class="deck-link" href="#selected-deck" aria-current="page">
+                                <span class="deck-color deck-color-violet" aria-hidden="true"></span>
+                                <span class="deck-link-copy"><span class="deck-name">Biology basics</span><span class="deck-meta">12 cards</span></span>
+                            </a>
+                            <div class="deck-actions">
+                                <button class="icon-button small-icon-button" type="button" aria-label="Edit Biology basics deck" aria-haspopup="dialog" aria-controls="deck-dialog">
+                                    <svg viewBox="0 0 20 20" aria-hidden="true"><path d="m13.5 4.5 2 2M4 16l3.6-.7 8.7-8.7a1.4 1.4 0 0 0-2-2l-8.7 8.7L4 16Z"></path></svg>
+                                </button>
+                                <button class="icon-button small-icon-button danger-hover" type="button" aria-label="Delete Biology basics deck" aria-haspopup="dialog" aria-controls="delete-deck-dialog">
+                                    <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4.5 6h11M8 6V4h4v2m2.5 0-.7 10H6.2l-.7-10M8.5 9v4m3-4v4"></path></svg>
+                                </button>
+                            </div>
+                        </li>
+                        <li class="deck-item">
+                            <a class="deck-link" href="#selected-deck">
+                                <span class="deck-color deck-color-blue" aria-hidden="true"></span>
+                                <span class="deck-link-copy"><span class="deck-name">Spanish essentials</span><span class="deck-meta">24 cards</span></span>
+                            </a>
+                            <div class="deck-actions">
+                                <button class="icon-button small-icon-button" type="button" aria-label="Edit Spanish essentials deck" aria-haspopup="dialog" aria-controls="deck-dialog">
+                                    <svg viewBox="0 0 20 20" aria-hidden="true"><path d="m13.5 4.5 2 2M4 16l3.6-.7 8.7-8.7a1.4 1.4 0 0 0-2-2l-8.7 8.7L4 16Z"></path></svg>
+                                </button>
+                                <button class="icon-button small-icon-button danger-hover" type="button" aria-label="Delete Spanish essentials deck" aria-haspopup="dialog" aria-controls="delete-deck-dialog">
+                                    <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4.5 6h11M8 6V4h4v2m2.5 0-.7 10H6.2l-.7-10M8.5 9v4m3-4v4"></path></svg>
+                                </button>
+                            </div>
+                        </li>
+                        <li class="deck-item">
+                            <a class="deck-link" href="#selected-deck">
+                                <span class="deck-color deck-color-amber" aria-hidden="true"></span>
+                                <span class="deck-link-copy"><span class="deck-name">World geography</span><span class="deck-meta">18 cards</span></span>
+                            </a>
+                            <div class="deck-actions">
+                                <button class="icon-button small-icon-button" type="button" aria-label="Edit World geography deck" aria-haspopup="dialog" aria-controls="deck-dialog">
+                                    <svg viewBox="0 0 20 20" aria-hidden="true"><path d="m13.5 4.5 2 2M4 16l3.6-.7 8.7-8.7a1.4 1.4 0 0 0-2-2l-8.7 8.7L4 16Z"></path></svg>
+                                </button>
+                                <button class="icon-button small-icon-button danger-hover" type="button" aria-label="Delete World geography deck" aria-haspopup="dialog" aria-controls="delete-deck-dialog">
+                                    <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4.5 6h11M8 6V4h4v2m2.5 0-.7 10H6.2l-.7-10M8.5 9v4m3-4v4"></path></svg>
+                                </button>
+                            </div>
+                        </li>
+                    </ul>
+                    <div class="empty-state sidebar-empty" hidden>
+                        <span class="empty-state-icon" aria-hidden="true">⌕</span>
+                        <p>No decks found</p>
+                        <span>Try another search or create a deck.</span>
+                    </div>
+                </nav>
+
+            </aside>
+
+            <main class="main-content" id="main-content">
+                <div class="mobile-sidebar-scrim" aria-hidden="true"></div>
+                <section class="deck-overview" id="selected-deck" aria-labelledby="deck-title">
+                    <div class="deck-heading-row">
+                        <div class="deck-title-group">
+                            <span class="deck-title-icon deck-color-violet" aria-hidden="true">
+                                <svg viewBox="0 0 24 24"><path d="M12 3.5c-1.8 2-6 6.5-6 10a6 6 0 0 0 12 0c0-3.5-4.2-8-6-10Z"></path><path d="M9.5 14.5c.3 1.5 1.2 2.3 2.8 2.5"></path></svg>
+                            </span>
+                            <div>
+                                <h1 id="deck-title">Biology basics</h1>
+                                <p class="deck-subtitle">12 cards</p>
+                            </div>
+                        </div>
+                        <div class="heading-actions">
+                            <button class="button button-secondary button-compact" type="button" aria-label="Edit Biology basics deck" aria-haspopup="dialog" aria-controls="deck-dialog">
+                                <svg class="button-icon" viewBox="0 0 20 20" aria-hidden="true"><path d="m13.5 4.5 2 2M4 16l3.6-.7 8.7-8.7a1.4 1.4 0 0 0-2-2l-8.7 8.7L4 16Z"></path></svg>
+                                Edit deck
+                            </button>
+                            <button class="icon-button overview-delete danger-hover" type="button" aria-label="Delete Biology basics deck" aria-haspopup="dialog" aria-controls="delete-deck-dialog">
+                                <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4.5 6h11M8 6V4h4v2m2.5 0-.7 10H6.2l-.7-10M8.5 9v4m3-4v4"></path></svg>
+                            </button>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="toolbar" aria-label="Deck tools">
+                    <div class="toolbar-search-wrap">
+                        <label class="search-field card-search" for="card-search">
+                            <svg viewBox="0 0 20 20" aria-hidden="true"><circle cx="8.8" cy="8.8" r="5.8"></circle><path d="m13.2 13.2 4 4"></path></svg>
+                            <span class="sr-only">Search cards in Biology basics</span>
+                            <input id="card-search" type="search" placeholder="Search cards..." autocomplete="off">
+                        </label>
+                    </div>
+                    <div class="toolbar-actions">
+                        <button class="button button-secondary" type="button" id="shuffle-button">
+                            <svg class="button-icon" viewBox="0 0 20 20" aria-hidden="true"><path d="M3 5h2.2c3.8 0 5.8 10 9.6 10H17M14 12l3 3-3 3M3 15h2.2c1.2 0 2.1-1.1 3-2.5M11.8 7.5c1-1.4 1.9-2.5 3-2.5H17M14 2l3 3-3 3"></path></svg>
+                            Shuffle
+                        </button>
+                        <button class="button button-primary" type="button" id="new-card-button" aria-haspopup="dialog" aria-controls="card-dialog">
+                            <svg class="button-icon" viewBox="0 0 20 20" aria-hidden="true"><path d="M10 4v12M4 10h12"></path></svg>
+                            New card
+                        </button>
+                    </div>
+                    <div class="toolbar-divider" aria-hidden="true"></div>
+                    <div class="file-actions">
+                        <label class="button button-quiet file-picker-button" for="import-file">
+                            <svg class="button-icon" viewBox="0 0 20 20" aria-hidden="true"><path d="M10 13V3m-4 4 4-4 4 4M4 12v4h12v-4"></path></svg>
+                            Import
+                        </label>
+                        <input class="visually-hidden" id="import-file" type="file" accept=".json,application/json" aria-describedby="transfer-help">
+                        <button class="button button-quiet" type="button" id="export-deck-button">
+                            <svg class="button-icon" viewBox="0 0 20 20" aria-hidden="true"><path d="M10 7v10m-4-4 4 4 4-4M4 8V4h12v4"></path></svg>
+                            Export
+                        </button>
+                    </div>
+                </section>
+
+                <p class="transfer-help" id="transfer-help">Move a deck between devices with a JSON file.</p>
+                <div class="status-message" id="app-status" role="status" aria-live="polite" aria-atomic="true"></div>
+
+                <section class="study-section" aria-labelledby="study-heading">
+                    <div class="section-heading">
+                        <div>
+                            <p class="eyebrow">Study session</p>
+                            <h2 id="study-heading">Ready when you are</h2>
+                        </div>
+                        <span class="session-count">12 cards to review</span>
+                    </div>
+
+                    <div class="study-stage">
+                        <article class="flashcard" id="flashcard" aria-label="Flashcard. Front: What is the powerhouse of the cell? Back: The mitochondrion.">
+                            <div class="flashcard-topline">
+                                <span class="side-label"><span class="side-indicator" aria-hidden="true"></span>Front of card</span>
+                            </div>
+                            <div class="flashcard-content">
+                                <p class="card-prompt">What is the powerhouse<br class="desktop-break"> of the cell?</p>
+                                <p class="flip-hint">Select “Flip card” to reveal the answer.</p>
+                            </div>
+                            <div class="flashcard-footer">
+                                <span>Biology basics</span>
+                                <span class="card-number">01 <span aria-hidden="true">/</span> 12</span>
+                            </div>
+                        </article>
+                        <article class="flashcard flashcard-back visually-hidden" id="flashcard-back" aria-label="Flashcard answer side. The mitochondrion.">
+                            <div class="flashcard-topline">
+                                <span class="side-label"><span class="side-indicator answer-indicator" aria-hidden="true"></span>Back of card</span>
+                            </div>
+                            <div class="flashcard-content">
+                                <p class="card-answer">The mitochondrion</p>
+                            </div>
+                            <div class="flashcard-footer">
+                                <span>Biology basics</span>
+                                <span class="card-number">01 <span aria-hidden="true">/</span> 12</span>
+                            </div>
+                        </article>
+                    </div>
+
+                    <div class="study-controls" aria-label="Flashcard controls">
+                        <button class="button button-secondary control-button" type="button" id="previous-card-button" aria-label="Previous card">
+                            <svg class="button-icon" viewBox="0 0 20 20" aria-hidden="true"><path d="m12.5 4-6 6 6 6"></path></svg>
+                            <span>Previous</span>
+                        </button>
+                        <span class="position-indicator" aria-label="Card 1 of 12"><strong>01</strong><span> / </span>12</span>
+                        <button class="button button-primary flip-button" type="button" id="flip-card-button">
+                            <svg class="button-icon" viewBox="0 0 20 20" aria-hidden="true"><path d="M3 10a7 7 0 0 1 12-5l2 2M17 4v3h-3M17 10a7 7 0 0 1-12 5l-2-2M3 16v-3h3"></path></svg>
+                            Flip card
+                        </button>
+                        <button class="button button-secondary control-button" type="button" id="next-card-button">
+                            <span>Next</span>
+                            <svg class="button-icon" viewBox="0 0 20 20" aria-hidden="true"><path d="m7.5 4 6 6-6 6"></path></svg>
+                        </button>
+                    </div>
+                    <div class="empty-state card-empty-state" hidden>
+                        <span class="empty-state-icon" aria-hidden="true">✦</span>
+                        <h3>No cards in this deck yet</h3>
+                        <p>Add your first flashcard to start studying.</p>
+                        <button class="button button-primary" type="button" aria-haspopup="dialog" aria-controls="card-dialog">Create a card</button>
+                    </div>
+                </section>
+
+                <section class="card-management" aria-labelledby="cards-heading">
+                    <div class="management-heading">
+                        <div>
+                            <p class="eyebrow">Your material</p>
+                            <h2 id="cards-heading">All cards <span class="inline-count">12</span></h2>
+                        </div>
+                    </div>
+                    <div class="card-list" role="list" aria-label="Cards in Biology basics">
+                        <article class="card-list-item" role="listitem">
+                            <div class="list-card-copy">
+                                <p>What is the powerhouse of the cell?</p>
+                            </div>
+                            <div class="list-card-divider" aria-hidden="true"></div>
+                            <div class="list-card-copy list-card-answer">
+                                <p>The mitochondrion</p>
+                            </div>
+                            <div class="list-card-actions">
+                                <button class="icon-button small-icon-button" type="button" aria-label="Edit card: What is the powerhouse of the cell?" aria-haspopup="dialog" aria-controls="card-dialog">
+                                    <svg viewBox="0 0 20 20" aria-hidden="true"><path d="m13.5 4.5 2 2M4 16l3.6-.7 8.7-8.7a1.4 1.4 0 0 0-2-2l-8.7 8.7L4 16Z"></path></svg>
+                                </button>
+                                <button class="icon-button small-icon-button danger-hover" type="button" aria-label="Delete card: What is the powerhouse of the cell?" aria-haspopup="dialog" aria-controls="delete-card-dialog">
+                                    <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4.5 6h11M8 6V4h4v2m2.5 0-.7 10H6.2l-.7-10M8.5 9v4m3-4v4"></path></svg>
+                                </button>
+                            </div>
+                        </article>
+                        <article class="card-list-item" role="listitem">
+                            <div class="list-card-copy">
+                                <p>What molecule carries genetic instructions?</p>
+                            </div>
+                            <div class="list-card-divider" aria-hidden="true"></div>
+                            <div class="list-card-copy list-card-answer">
+                                <p>DNA (deoxyribonucleic acid)</p>
+                            </div>
+                            <div class="list-card-actions">
+                                <button class="icon-button small-icon-button" type="button" aria-label="Edit card: What molecule carries genetic instructions?" aria-haspopup="dialog" aria-controls="card-dialog">
+                                    <svg viewBox="0 0 20 20" aria-hidden="true"><path d="m13.5 4.5 2 2M4 16l3.6-.7 8.7-8.7a1.4 1.4 0 0 0-2-2l-8.7 8.7L4 16Z"></path></svg>
+                                </button>
+                                <button class="icon-button small-icon-button danger-hover" type="button" aria-label="Delete card: What molecule carries genetic instructions?" aria-haspopup="dialog" aria-controls="delete-card-dialog">
+                                    <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4.5 6h11M8 6V4h4v2m2.5 0-.7 10H6.2l-.7-10M8.5 9v4m3-4v4"></path></svg>
+                                </button>
+                            </div>
+                        </article>
+                        <article class="card-list-item" role="listitem">
+                            <div class="list-card-copy">
+                                <p>What is the basic unit of life?</p>
+                            </div>
+                            <div class="list-card-divider" aria-hidden="true"></div>
+                            <div class="list-card-copy list-card-answer">
+                                <p>The cell</p>
+                            </div>
+                            <div class="list-card-actions">
+                                <button class="icon-button small-icon-button" type="button" aria-label="Edit card: What is the basic unit of life?" aria-haspopup="dialog" aria-controls="card-dialog">
+                                    <svg viewBox="0 0 20 20" aria-hidden="true"><path d="m13.5 4.5 2 2M4 16l3.6-.7 8.7-8.7a1.4 1.4 0 0 0-2-2l-8.7 8.7L4 16Z"></path></svg>
+                                </button>
+                                <button class="icon-button small-icon-button danger-hover" type="button" aria-label="Delete card: What is the basic unit of life?" aria-haspopup="dialog" aria-controls="delete-card-dialog">
+                                    <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4.5 6h11M8 6V4h4v2m2.5 0-.7 10H6.2l-.7-10M8.5 9v4m3-4v4"></path></svg>
+                                </button>
+                            </div>
+                        </article>
+                    </div>
+                    <div class="empty-state management-empty-state" hidden>
+                        <p>No cards match your search.</p>
+                    </div>
+                </section>
+
+                <footer class="app-footer">
+                    <p>Create a deck, add your cards, and flip through them to study. Your decks and progress will be managed locally in your browser.</p>
+                </footer>
+            </main>
+        </div>
+    </div>
+
+    <dialog class="dialog" id="deck-dialog" aria-labelledby="deck-dialog-title">
+        <form class="dialog-form" method="dialog">
+            <div class="dialog-heading">
+                <div><p class="eyebrow">Your library</p><h2 id="deck-dialog-title">Create a deck</h2></div>
+                <button class="icon-button dialog-close" type="submit" value="cancel" aria-label="Close deck dialog">
+                    <svg viewBox="0 0 20 20" aria-hidden="true"><path d="m5 5 10 10M15 5 5 15"></path></svg>
+                </button>
+            </div>
+            <p class="dialog-description">Give your new deck a name. You can change it any time.</p>
+            <label class="form-label" for="deck-name">Deck name</label>
+            <input class="form-control" id="deck-name" name="deckName" type="text" placeholder="e.g. Organic chemistry" maxlength="80" required>
+            <p class="form-message" id="deck-form-message" aria-live="polite"></p>
+            <div class="dialog-actions">
+                <button class="button button-secondary" type="submit" value="cancel">Cancel</button>
+                <button class="button button-primary" type="submit" value="save">Save deck</button>
+            </div>
+        </form>
+    </dialog>
+
+    <dialog class="dialog" id="delete-deck-dialog" aria-labelledby="delete-deck-title">
+        <form class="dialog-form" method="dialog">
+            <div class="dialog-heading">
+                <span class="dialog-alert-icon" aria-hidden="true"><svg viewBox="0 0 20 20"><path d="M4.5 6h11M8 6V4h4v2m2.5 0-.7 10H6.2l-.7-10M8.5 9v4m3-4v4"></path></svg></span>
+                <button class="icon-button dialog-close" type="submit" value="cancel" aria-label="Close delete deck confirmation">
+                    <svg viewBox="0 0 20 20" aria-hidden="true"><path d="m5 5 10 10M15 5 5 15"></path></svg>
+                </button>
+            </div>
+            <h2 id="delete-deck-title">Delete this deck?</h2>
+            <p class="dialog-description">This will delete <strong id="delete-deck-name">Biology basics</strong> and all its cards. This action cannot be undone.</p>
+            <div class="dialog-actions">
+                <button class="button button-secondary" type="submit" value="cancel">Keep deck</button>
+                <button class="button button-danger" type="submit" value="delete">Delete deck</button>
+            </div>
+        </form>
+    </dialog>
+
+    <dialog class="dialog dialog-wide" id="card-dialog" aria-labelledby="card-dialog-title">
+        <form class="dialog-form" method="dialog">
+            <div class="dialog-heading">
+                <div><p class="eyebrow">Biology basics</p><h2 id="card-dialog-title">Create a flashcard</h2></div>
+                <button class="icon-button dialog-close" type="submit" value="cancel" aria-label="Close flashcard dialog">
+                    <svg viewBox="0 0 20 20" aria-hidden="true"><path d="m5 5 10 10M15 5 5 15"></path></svg>
+                </button>
+            </div>
+            <p class="dialog-description">Add a prompt and its answer. Both sides will be shown when studying.</p>
+            <label class="form-label" for="card-front">Front <span class="form-label-hint">Question or term</span></label>
+            <textarea class="form-control form-textarea" id="card-front" name="cardFront" rows="3" placeholder="What do you want to remember?" required></textarea>
+            <label class="form-label" for="card-back">Back <span class="form-label-hint">Answer or definition</span></label>
+            <textarea class="form-control form-textarea" id="card-back" name="cardBack" rows="3" placeholder="Write the answer here..." required></textarea>
+            <p class="form-message" id="card-form-message" aria-live="polite"></p>
+            <div class="dialog-actions">
+                <button class="button button-secondary" type="submit" value="cancel">Cancel</button>
+                <button class="button button-primary" type="submit" value="save">Save card</button>
+            </div>
+        </form>
+    </dialog>
+
+    <dialog class="dialog" id="delete-card-dialog" aria-labelledby="delete-card-title">
+        <form class="dialog-form" method="dialog">
+            <div class="dialog-heading">
+                <span class="dialog-alert-icon" aria-hidden="true"><svg viewBox="0 0 20 20"><path d="M4.5 6h11M8 6V4h4v2m2.5 0-.7 10H6.2l-.7-10M8.5 9v4m3-4v4"></path></svg></span>
+                <button class="icon-button dialog-close" type="submit" value="cancel" aria-label="Close delete card confirmation">
+                    <svg viewBox="0 0 20 20" aria-hidden="true"><path d="m5 5 10 10M15 5 5 15"></path></svg>
+                </button>
+            </div>
+            <h2 id="delete-card-title">Delete this card?</h2>
+            <p class="dialog-description">The card <strong id="delete-card-name">What is the powerhouse of the cell?</strong> will be permanently removed from this deck.</p>
+            <div class="dialog-actions">
+                <button class="button button-secondary" type="submit" value="cancel">Keep card</button>
+                <button class="button button-danger" type="submit" value="delete">Delete card</button>
+            </div>
+        </form>
+    </dialog>
+    <script src="app.js"></script>
+</body>
+</html>

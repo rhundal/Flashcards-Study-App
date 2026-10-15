@@ -1,0 +1,10 @@
+# Editor settings
+.vscode/
+
+# Local environment variables
+.env
+*.env
+
+# Dependencies (added for when you initialize your project packages)
+node_modules/
+dist/
