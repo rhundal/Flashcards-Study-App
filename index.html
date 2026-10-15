@@ -9,6 +9,7 @@
     <title>Flashcards — Study workspace</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="styles.css">
+    <script type="module" src="dist/index.js" defer></script>
 </head>
 
 <body>
@@ -410,7 +411,7 @@
         </div>
     </div>
 
-    <dialog class="dialog" id="deck-dialog" aria-labelledby="deck-dialog-title">
+    <dialog class="dialog" id="deck-dialog" aria-labelledby="deck-dialog-title"> <!-- this modal is for new deck btn-->
         <form class="dialog-form" method="dialog">
             <div class="dialog-heading">
                 <div>
@@ -429,8 +430,8 @@
                 maxlength="80" required>
             <p class="form-message" id="deck-form-message" aria-live="polite"></p>
             <div class="dialog-actions">
-                <button class="button button-secondary" type="submit" value="cancel">Cancel</button>
-                <button class="button button-primary" type="submit" value="save">Save deck</button>
+                <button id="cancelBtnModal" class="button button-secondary" type="submit" value="cancel">Cancel</button>
+                <button id="saveBtnModal" class="button button-primary" type="submit" value="save">Save deck</button>
             </div>
         </form>
     </dialog>
@@ -511,7 +512,6 @@
             </div>
         </form>
     </dialog>
-    <script src="app.js"></script>
 </body>
 
 </html>
