@@ -1,4 +1,4 @@
-class FlashCard {
+export default class FlashCard {
   #frontText: string = ""; // setting card fields private
   #backText: string = "";
 

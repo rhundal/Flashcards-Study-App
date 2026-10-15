@@ -208,8 +208,8 @@
                             </svg>
                             Shuffle
                         </button>
-                        <button class="button button-primary" type="button" id="new-card-button" aria-haspopup="dialog"
-                            aria-controls="card-dialog">
+                        <button id="newCardBtn" class="button button-primary" type="button" id="new-card-button"
+                            aria-haspopup="dialog" aria-controls="card-dialog">
                             <svg class="button-icon" viewBox="0 0 20 20" aria-hidden="true">
                                 <path d="M10 4v12M4 10h12"></path>
                             </svg>
@@ -460,6 +460,7 @@
     </dialog>
 
     <dialog class="dialog dialog-wide" id="card-dialog" aria-labelledby="card-dialog-title">
+        <!-- modal for creating a new card-->
         <form class="dialog-form" method="dialog">
             <div class="dialog-heading">
                 <div>
@@ -484,8 +485,9 @@
                 placeholder="Write the answer here..." required></textarea>
             <p class="form-message" id="card-form-message" aria-live="polite"></p>
             <div class="dialog-actions">
-                <button class="button button-secondary" type="submit" value="cancel">Cancel</button>
-                <button class="button button-primary" type="submit" value="save">Save card</button>
+                <button id="cancelNewCardBtn" class="button button-secondary" type="submit"
+                    value="cancel">Cancel</button>
+                <button id="saveNewCardBtn" class="button button-primary" type="submit" value="save">Save card</button>
             </div>
         </form>
     </dialog>
