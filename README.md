@@ -1,7 +1,7 @@
 #### How AI (Co-pilot) was used
 
 - The Prompt below was used to scaffold UI
-- I have implemented Typescript/behavior functioality with some help from prompts to AI.
+- I implemented the behavior (Typescript code) myself with some help from AI.
 
 #### Reflections
 
