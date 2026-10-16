@@ -1,9 +1,18 @@
 import FlashCard from "./FlashCard.js";
 
 export default class Deck {
-  #deckOfCards: FlashCard[] = []; //deckOfCards = array of array of flash cards
+  deckOfCards: FlashCard[] = [];
+  id: string = crypto.randomUUID();
+  name: string;
+  constructor(name: string) {
+    // Access via the class name instead of 'this'
+    this.name = name;
+  }
 
-  constructor(cards: FlashCard[]) {
-    this.#deckOfCards = cards;
+  get getDeckId() {
+    return this.id;
+  }
+  get getDeckName() {
+    return this.name;
   }
 }

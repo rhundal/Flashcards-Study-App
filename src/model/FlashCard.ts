@@ -1,11 +1,13 @@
 export default class FlashCard {
   #frontText: string = ""; // setting card fields private
   #backText: string = "";
+  id: string = crypto.randomUUID();
+  updatedAt: number = Date.now();
 
-  //   constructor(frontText: string, backText: string) {
-  //     this.#frontText = frontText;
-  //     this.#backText = backText;
-  //   }
+  constructor(frontText: string, backText: string) {
+    this.#frontText = frontText;
+    this.#backText = backText;
+  }
 
   get getFrontText(): string {
     return this.#frontText;

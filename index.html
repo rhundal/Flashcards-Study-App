@@ -68,8 +68,9 @@
                     <input id="deck-search" type="search" placeholder="Find a deck" autocomplete="off">
                 </label>
 
-                <nav class="deck-navigation" aria-label="Your decks">
+                <nav class="deck-navigation" aria-label="Your decks" id="leftMenu">
                     <ul class="deck-list">
+                        <!--   
                         <li class="deck-item is-active">
                             <a class="deck-link" href="#selected-deck" aria-current="page">
                                 <span class="deck-color deck-color-violet" aria-hidden="true"></span>
@@ -142,6 +143,7 @@
                                 </button>
                             </div>
                         </li>
+                        -->
                     </ul>
                     <div class="empty-state sidebar-empty" hidden>
                         <span class="empty-state-icon" aria-hidden="true">⌕</span>
@@ -247,36 +249,8 @@
                         <span class="session-count">12 cards to review</span>
                     </div>
 
-                    <div class="study-stage">
-                        <article class="flashcard" id="flashcard"
-                            aria-label="Flashcard. Front: What is the powerhouse of the cell? Back: The mitochondrion.">
-                            <div class="flashcard-topline">
-                                <span class="side-label"><span class="side-indicator" aria-hidden="true"></span>Front of
-                                    card</span>
-                            </div>
-                            <div class="flashcard-content">
-                                <p class="card-prompt">What is the powerhouse<br class="desktop-break"> of the cell?</p>
-                                <p class="flip-hint">Select “Flip card” to reveal the answer.</p>
-                            </div>
-                            <div class="flashcard-footer">
-                                <span>Biology basics</span>
-                                <span class="card-number">01 <span aria-hidden="true">/</span> 12</span>
-                            </div>
-                        </article>
-                        <article class="flashcard flashcard-back visually-hidden" id="flashcard-back"
-                            aria-label="Flashcard answer side. The mitochondrion.">
-                            <div class="flashcard-topline">
-                                <span class="side-label"><span class="side-indicator answer-indicator"
-                                        aria-hidden="true"></span>Back of card</span>
-                            </div>
-                            <div class="flashcard-content">
-                                <p class="card-answer">The mitochondrion</p>
-                            </div>
-                            <div class="flashcard-footer">
-                                <span>Biology basics</span>
-                                <span class="card-number">01 <span aria-hidden="true">/</span> 12</span>
-                            </div>
-                        </article>
+                    <div id="displayCardArea" class="study-stage"> <!-- area to display the cards-->
+
                     </div>
 
                     <div class="study-controls" aria-label="Flashcard controls">
@@ -412,7 +386,7 @@
     </div>
 
     <dialog class="dialog" id="deck-dialog" aria-labelledby="deck-dialog-title"> <!-- this modal is for new deck btn-->
-        <form class="dialog-form" method="dialog">
+        <form class="dialog-form" method="dialog" novalidate>
             <div class="dialog-heading">
                 <div>
                     <p class="eyebrow">Your library</p>
@@ -464,7 +438,7 @@
         <form class="dialog-form" method="dialog">
             <div class="dialog-heading">
                 <div>
-                    <p class="eyebrow">Biology basics</p>
+                    <p class="eyebrow">Biology basics on modal</p>
                     <h2 id="card-dialog-title">Create a flashcard</h2>
                 </div>
                 <button class="icon-button dialog-close" type="submit" value="cancel"
