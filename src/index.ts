@@ -27,6 +27,7 @@ let currentDeck: Deck;
 
 let decksArray: Deck[] = [];
 let activeDeckId: string | null = "";
+let currentDeckTitle = document.querySelector("#deckTtle");
 
 let deckCountElem = document.querySelector("#deckCount");
 
@@ -44,6 +45,12 @@ let nextCardBtn = document.querySelector("#next-card-button");
 let flipCardBtn = document.querySelector("#flip-card-button");
 
 ////////////// functions and event listeners //////////////
+
+document.addEventListener("DOMContentLoaded", () => {
+  if (currentDeckTitle) {
+    currentDeckTitle.textContent = "Select a Deck to Begin";
+  }
+});
 
 newDeckBtn?.addEventListener("click", () => {
   modalForNewDeck?.setAttribute("openStatus", "open");
@@ -167,4 +174,27 @@ flipCardBtn?.addEventListener("click", () => {
   );
 
   cardContainer?.classList.toggle("is-flipped");
+});
+
+deckList?.addEventListener("click", (e) => {
+  const currentDeckLi = (e.target as HTMLElement).closest<HTMLLIElement>(
+    ".deck-item",
+  );
+
+  if (!currentDeckLi) return;
+
+  // Clear out the 'is-active' styles from all other decks
+  const allDecks = deckList.querySelectorAll(".deck-item");
+  allDecks.forEach((li) => li.classList.remove("is-active"));
+
+  currentDeckLi?.classList.add("is-active");
+  activeDeckId = currentDeckLi.id;
+
+  const selectedDeckName =
+    currentDeckLi?.querySelector<HTMLSpanElement>(".deck-name")?.textContent ||
+    "";
+
+  if (currentDeckTitle) {
+    currentDeckTitle.textContent = selectedDeckName;
+  }
 });

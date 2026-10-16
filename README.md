@@ -12,6 +12,7 @@
       1. Create, Read Cards, Decks
       2. Responsive layout; basic accessibility (labels, focus, keyboard navigation)
       3. Progress and stats per deck
+      4. Current deck title on page works
    2. In Progress functionality: Study mode: flip cards, next/previous, shuffle
    3. Pending functionality:
       1. Update, Delete Cards, Decks
