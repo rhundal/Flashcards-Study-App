@@ -28,6 +28,8 @@ let currentDeck: Deck;
 let decksArray: Deck[] = [];
 let activeDeckId: string | null = "";
 
+let deckCountElem = document.querySelector("#deckCount");
+
 const activeDeckItem = document.querySelector<HTMLLIElement>(
   "#leftMenu .deck-item.is-active",
 ); // handle to most current newly added deck
@@ -107,6 +109,9 @@ saveNewCardButton?.addEventListener("click", () => {
 function renderDeck(newDeck: Deck) {
   let createdDeckLi = deckTemplate(newDeck);
   deckList?.insertAdjacentElement("afterbegin", createdDeckLi);
+  if (deckList && deckCountElem) {
+    deckCountElem.innerHTML = String(deckList.children.length);
+  }
 }
 
 function renderCard(
