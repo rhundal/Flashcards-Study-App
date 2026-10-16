@@ -64,6 +64,17 @@ cancelModal?.addEventListener("click", () => {
   (modalForNewDeck as HTMLDialogElement)?.close();
 });
 
+function reusableCreateDeck(): Deck | undefined {
+  // deck created automatically when card created without deck first
+
+  let deckNameCreatedBySystem = "SystemGeneratedDeck";
+  currentDeck = new Deck(deckNameCreatedBySystem);
+  decksArray.push(currentDeck);
+  activeDeckId = currentDeck.getDeckId;
+  renderDeck(currentDeck);
+  return currentDeck;
+}
+
 saveModal?.addEventListener("click", () => {
   if (modalForNewDeck?.getAttribute("openStatus") === "open") {
     newDeckNameByUser = modalDeckNameField.value;
@@ -102,7 +113,13 @@ saveNewCardButton?.addEventListener("click", () => {
   let targetDeck: Deck | undefined = decksArray?.find(
     (deck) => deck.id === activeDeckId,
   );
+
+  if (!targetDeck && !activeDeckId) {
+    targetDeck = reusableCreateDeck();
+  }
+
   targetDeck?.deckOfCards.push(currentCard);
+
   newCardFrontField.value = "";
   newCardBackField.value = "";
   const totalCards = targetDeck?.deckOfCards.length || 0;
