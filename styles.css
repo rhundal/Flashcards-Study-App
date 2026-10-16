@@ -261,7 +261,7 @@ button:disabled {
     box-shadow: var(--focus);
 }
 
-.search-field > svg {
+.search-field>svg {
     width: 17px;
     height: 17px;
     flex: 0 0 auto;
@@ -843,7 +843,7 @@ button:disabled {
     font-weight: 800;
 }
 
-.empty-state > span:last-child {
+.empty-state>span:last-child {
     display: block;
     margin-top: 0.3rem;
     font-size: 0.78rem;
@@ -893,7 +893,7 @@ button:disabled {
 }
 
 .dialog-heading h2,
-.dialog-form > h2 {
+.dialog-form>h2 {
     margin: 0;
     font-size: 1.3rem;
     font-weight: 800;
@@ -1232,6 +1232,7 @@ button:disabled {
 }
 
 @media (prefers-reduced-motion: reduce) {
+
     *,
     *::before,
     *::after {
@@ -1240,4 +1241,31 @@ button:disabled {
         animation-iteration-count: 1 !important;
         transition-duration: 0.01ms !important;
     }
+}
+
+.flashcard-container {
+    position: relative;
+    width: 100%;
+    min-height: 260px;
+    perspective: 1000px;
+}
+
+.flashcard-container>.flashcard {
+    min-height: 260px;
+    backface-visibility: hidden;
+    transition: transform 500ms ease;
+}
+
+.flashcard-container>.flashcard-back {
+    position: absolute;
+    inset: 0;
+    transform: rotateY(180deg);
+}
+
+.flashcard-container.is-flipped>.flashcard:not(.flashcard-back) {
+    transform: rotateY(-180deg);
+}
+
+.flashcard-container.is-flipped>.flashcard-back {
+    transform: rotateY(0);
 }

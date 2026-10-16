@@ -37,6 +37,10 @@ const deckList = document.querySelector<HTMLUListElement>(
 );
 const cardArea = document.querySelector<HTMLDivElement>("#displayCardArea");
 
+let prevCardBtn = document.querySelector("#previous-card-button");
+let nextCardBtn = document.querySelector("#next-card-button");
+let flipCardBtn = document.querySelector("#flip-card-button");
+
 ////////////// functions and event listeners //////////////
 
 newDeckBtn?.addEventListener("click", () => {
@@ -151,3 +155,11 @@ function refreshDeck(deckName: string) {
     }
   }
 }
+
+flipCardBtn?.addEventListener("click", () => {
+  const cardContainer = cardArea?.querySelector<HTMLElement>(
+    ".flashcard-container",
+  );
+
+  cardContainer?.classList.toggle("is-flipped");
+});

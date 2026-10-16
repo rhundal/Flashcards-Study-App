@@ -29,7 +29,7 @@ export function cardTemplate(
     </article>
 
     <!-- Back Side -->
-    <article class="flashcard flashcard-back visually-hidden" id="flashcard-back"
+    <article class="flashcard flashcard-back" id="flashcard-back"
         aria-label="Flashcard answer side: ${newCard.getBackText}">
         <div class="flashcard-topline">
             <span class="side-label">
