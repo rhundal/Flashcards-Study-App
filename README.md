@@ -1,5 +1,3 @@
-### Project requirements and instructions for Copilot.
-
 #### How AI (Co-pilot) was used
 
 - The Prompt below was used to scaffold UI
@@ -21,7 +19,7 @@
       3. Persist data using LocalStorage (decks, cards, last active deck)
       4. Import/export deck JSON.
 
-### Prompt Used
+### Project requirements and instructions for Copilot. (Prompt used)
 
 # Project: Flashcards — Single-Page Web Application
 
