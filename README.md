@@ -1,5 +1,28 @@
 ### Project requirements and instructions for Copilot.
 
+#### How AI (Co-pilot) was used
+
+- The Prompt below was used to scaffold UI
+- I have implemented Typescript/behavior functioality with some help from prompts to AI.
+
+#### Reflections
+
+1. What AI produced - AI produced the entire User Interface with the help of the prompt below.
+2. What you fixed - I fixed and moved around some layout by making reusable card and deck templates
+3. Key insights -
+   1. Completed functionality:
+      1. Create, Read Cards, Decks
+      2. Responsive layout; basic accessibility (labels, focus, keyboard navigation)
+      3. Progress and stats per deck
+   2. In Progress functionality: Study mode: flip cards, next/previous, shuffle
+   3. Pending functionality:
+      1. Update, Delete Cards, Decks
+      2. Search/filter within a deck by keyword
+      3. Persist data using LocalStorage (decks, cards, last active deck)
+      4. Import/export deck JSON.
+
+### Prompt Used
+
 # Project: Flashcards — Single-Page Web Application
 
 ## 1. Role and objective
